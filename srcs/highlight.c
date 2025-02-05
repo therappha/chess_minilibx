@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   highlight.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 17:42:20 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/02/05 18:09:17 by rafaelfe         ###   ########.fr       */
+/*   Created: 2025/02/05 18:17:27 by rafaelfe          #+#    #+#             */
+/*   Updated: 2025/02/05 19:27:58 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/game.h"
 
-
-int	main(int ac, char **av)
+void highlight(t_game **game, int column, int rowpos)
 {
-	t_game	*game;
-
-	game = malloc(sizeof(game));
-	game->mlx_ptr = mlx_init();
-	game->win_ptr = mlx_new_window(game->mlx_ptr, 640, 640, "game");
-	load_images(&game);
-	drawboard(&game);
-	start_pieces(&game);
-	drawpieces(&game);
-	mlx_hook((game) -> win_ptr, DestroyNotify, 0L, free_displays, &game);
-	mlx_hook((game) -> win_ptr, 4, (1L<<2), mouse_input, &game );
-	mlx_loop(game->mlx_ptr);
+	for (int i = 0; i < 64; i++)
+	{
+		for (int j = 0; j < 64; j++)
+		{
+			if (j < 4 || j > 59 || i < 4 || i > 59)
+				mlx_pixel_put((*game) -> mlx_ptr, (*game) -> win_ptr, (rowpos * 64) + 64 + j, (column * 64) + 64 + i, 0xacd41c);
+		}
+	}
 }

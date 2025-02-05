@@ -98,5 +98,7 @@ void	load_images(t_game **game);
 void	pixel_put(t_data *data, int x, int y, int color);
 void	start_pieces(t_game **game);
 void	drawpieces(t_game **game);
+int	mouse_input(int keysym, int x, int y, t_game **game);
+void highlight(t_game **game, int column, int rowpos);
 
 # endif
