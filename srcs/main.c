@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:42:20 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/02/04 19:41:19 by rafaelfe         ###   ########.fr       */
+/*   Updated: 2025/02/05 01:43:26 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	main(int ac, char **av)
 	game->win_ptr = mlx_new_window(game->mlx_ptr, 640, 640, "game");
 	load_images(&game);
 	drawboard(&game);
+	start_pieces(&game);
+	drawpieces(&game);
 	mlx_hook((game) -> win_ptr, DestroyNotify, 0L, free_displays, &game);
 	mlx_loop(game->mlx_ptr);
 }

@@ -38,17 +38,42 @@
 #define BLACK_PATH "assets/board/black_tile.xpm"
 #define BACKGROUND_PATH "assets/board/background.xpm"
 
-typedef struct s_tile
-{
-	int	piece;
+// Define piece image paths
+#define WHITE_ROOK_PATH "assets/pieces/white_rook.xpm"
+#define WHITE_KNIGHT_PATH "assets/pieces/white_knight.xpm"
+#define WHITE_BISHOP_PATH "assets/pieces/white_bishop.xpm"
+#define WHITE_QUEEN_PATH "assets/pieces/white_queen.xpm"
+#define WHITE_KING_PATH "assets/pieces/white_king.xpm"
+#define WHITE_PAWN_PATH "assets/pieces/white_pawn.xpm"
 
-} t_tile;
+#define BLACK_ROOK_PATH "assets/pieces/black_rook.xpm"
+#define BLACK_KNIGHT_PATH "assets/pieces/black_knight.xpm"
+#define BLACK_BISHOP_PATH "assets/pieces/black_bishop.xpm"
+#define BLACK_QUEEN_PATH "assets/pieces/black_queen.xpm"
+#define BLACK_KING_PATH "assets/pieces/black_king.xpm"
+#define BLACK_PAWN_PATH "assets/pieces/black_pawn.xpm"
+
+#define WHITE_ROOK_WHITE_PATH "assets/pieces/white_rook_white.xpm"
+#define WHITE_KNIGHT_WHITE_PATH "assets/pieces/white_knight_white.xpm"
+#define WHITE_BISHOP_WHITE_PATH "assets/pieces/white_bishop_white.xpm"
+#define WHITE_QUEEN_WHITE_PATH "assets/pieces/white_queen_white.xpm"
+#define WHITE_KING_WHITE_PATH "assets/pieces/white_king_white.xpm"
+#define WHITE_PAWN_WHITE_PATH "assets/pieces/white_pawn_white.xpm"
+
+#define BLACK_ROOK_WHITE_PATH "assets/pieces/black_rook_white.xpm"
+#define BLACK_KNIGHT_WHITE_PATH "assets/pieces/black_knight_white.xpm"
+#define BLACK_BISHOP_WHITE_PATH "assets/pieces/black_bishop_white.xpm"
+#define BLACK_QUEEN_WHITE_PATH "assets/pieces/black_queen_white.xpm"
+#define BLACK_KING_WHITE_PATH "assets/pieces/black_king_white.xpm"
+#define BLACK_PAWN_WHITE_PATH "assets/pieces/black_pawn_white.xpm"
+
 typedef struct s_images
 {
 	void *black_tile_img;
 	void *white_tile_img;
 	void *background_img;
 	void *piece_img[12];
+	void *white_piece_img[12];
 } t_images;
 
 typedef struct	s_data {
@@ -64,13 +89,14 @@ typedef	struct	s_game
 	void	*mlx_ptr;
 	void	*win_ptr;
 	t_images *images;
-	t_tile tiles[8][8];
+	int **tiles;
 }	t_game;
 
 int		free_displays(t_game **game);
 void	drawboard(t_game **game);
-void		load_images(t_game **game);
+void	load_images(t_game **game);
 void	pixel_put(t_data *data, int x, int y, int color);
-
+void	start_pieces(t_game **game);
+void	drawpieces(t_game **game);
 
 # endif

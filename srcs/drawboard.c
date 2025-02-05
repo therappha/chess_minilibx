@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 19:08:14 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/02/05 00:43:03 by rafaelfe         ###   ########.fr       */
+/*   Updated: 2025/02/05 01:04:45 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,3 +37,4 @@ void drawboard(t_game **game)
 		column++;
 	}
 }
+
