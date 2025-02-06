@@ -1,5 +1,5 @@
 
-NAME= chess2
+NAME= chess
 CC= cc
 CFLAGS = -g  -I $(INCLUDES)
 LDFLAGS =  -L $(LIBFT_DIR) -lft -L $(MLX_DIR) -lmlx_Linux -lXext -lX11 -lm
