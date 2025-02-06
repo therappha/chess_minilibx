@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 18:09:31 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/02/06 02:19:19 by rafaelfe         ###   ########.fr       */
+/*   Updated: 2025/02/06 03:32:31 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,22 @@ void highlight_valid_moves(t_game **game, int from_column, int from_row)
 					break;
 				case BLACK_BISHOP:
 					if (is_valid_bishop(game, from_column, from_row, to_column, to_row, 0))
+						highlight(game, to_column, to_row, 0xc1c418);
+					break;
+				case WHITE_QUEEN:
+					if (is_valid_queen(game, from_column, from_row, to_column, to_row, 1))
+						highlight(game, to_column, to_row, 0xc1c418);
+					break;
+				case BLACK_QUEEN:
+					if (is_valid_queen(game, from_column, from_row, to_column, to_row, 0))
+						highlight(game, to_column, to_row, 0xc1c418);
+					break;
+				case BLACK_KING:
+					if (is_valid_king(game, from_column, from_row, to_column, to_row, 0))
+						highlight(game, to_column, to_row, 0xc1c418);
+					break;
+				case WHITE_KING:
+					if (is_valid_king(game, from_column, from_row, to_column, to_row, 1))
 						highlight(game, to_column, to_row, 0xc1c418);
 					break;
 

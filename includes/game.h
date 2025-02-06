@@ -109,6 +109,8 @@ int is_valid_pawn(t_game **game, int from_col, int from_row, int to_col, int to_
 int is_valid_rook(t_game **game, int from_col, int from_row, int to_col, int to_row, int white);
 int is_valid_knight(t_game **game, int from_col, int from_row, int to_col, int to_row, int white);
 int is_valid_bishop(t_game **game, int from_col, int from_row, int to_col, int to_row, int white);
+int is_valid_king(t_game **game, int from_col, int from_row, int to_col, int to_row, int white);
+int is_valid_queen(t_game **game, int from_col, int from_row, int to_col, int to_row, int white);
 
 
 # endif
