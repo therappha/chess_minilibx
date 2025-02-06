@@ -1,8 +1,8 @@
-# School Project
 
 ## Work in Progress
 
 This project is currently a work in progress.
+I am just having fun with the minilibx library!
 
 ### How to Use
 
