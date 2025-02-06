@@ -8,7 +8,7 @@ I am just having fun with the minilibx library!
 
 1. Clone the repository:
    ```bash
-   git clone git@github.com:therappha/chess_minilibx.git --recursive
+   git clone --recursive git@github.com:therappha/chess_minilibx.git
 
 2. Enter the repo:
 	```bash
