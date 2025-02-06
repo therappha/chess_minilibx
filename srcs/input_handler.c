@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 18:09:31 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/02/06 17:13:42 by rafaelfe         ###   ########.fr       */
+/*   Updated: 2025/02/06 21:46:26 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,29 @@ int	mouse_input(int keysym, int x, int y, t_game **game)
 	if (!(x >= 64 && x <= 576 && y >= 64 && y <= 576))
 		return (0);
 	if (keysym == 1)
-		left_button(game, x, y);
-
+	{
+		if ((*game) -> server && (*game) -> turn == 0)
+			left_button(game, (x - 64) / 64, (y - 64) / 64);
+		else if	((*game) -> turn == 1)
+			left_button(game, 7 - ((x - 64) / 64), 7 - ((y - 64) / 64));
+	}
+	return (0);
 }
 void left_button(t_game **game, int x, int y)
 {
 	static int selected_rowpos;
 	static int selected_column;
-	int column = (y - 64) / 64;
-	int rowpos = (x - 64) / 64;
+	int column = y;
+	int rowpos = x;
+
 	handle_selected(game, &selected_column, &selected_rowpos, column, rowpos);
 	ft_printf("column %d, row %d\n", column, rowpos);
 }
 void handle_selected(t_game **game, int *sel_column, int *sel_row, int column, int row)
 {
 	static int highlighted;
-	static int turn;
-	if (highlighted == 0 && turn == 0 && (*game) -> tiles[column][row] != -1 && (*game) -> tiles[column][row] < 6 )
+
+	if (highlighted == 0 && (*game) -> turn == 0 && (*game) -> tiles[column][row] != -1 && (*game) -> tiles[column][row] < 6 )
 	{
 		highlight(game, column, row, 0x18a15c);
 		highlighted = 1;
@@ -53,7 +59,7 @@ void handle_selected(t_game **game, int *sel_column, int *sel_row, int column, i
 		*sel_column = column;
 		*sel_row = row;
 	}
-	else if (highlighted == 0 && turn == 1 && (*game) -> tiles[column][row] != -1 && (*game) -> tiles[column][row] > 5 )
+	else if (highlighted == 0 && (*game) -> turn == 1 && (*game) -> tiles[column][row] != -1 && (*game) -> tiles[column][row] > 5 )
 	{
 		highlight(game, column, row, 0x18a15c);
 		highlighted = 1;
@@ -91,7 +97,11 @@ void handle_selected(t_game **game, int *sel_column, int *sel_row, int column, i
 			if (is_valid_move(game, *sel_column, *sel_row, column, row))
 			{
 				move(game, *sel_column, *sel_row, column, row);
-				turn = turn == 0 ? 1 : 0;
+				emit_sig((*game) -> pid, *sel_column);
+				emit_sig((*game) -> pid, *sel_row);
+				emit_sig((*game) -> pid, column);
+				emit_sig((*game) -> pid, row);
+
 			}
 			resetboard(game);
 			*sel_column = -1 ;
@@ -104,11 +114,12 @@ ft_printf("selected column: %d, selected row %d\n", *sel_column, *sel_row);
 }
 void	move(t_game **game, int from_column, int from_row, int to_column, int to_row)
 {
+	ft_printf("moving piece from %d, %d, to %d, %d!\n", from_column, from_row, to_column, to_row);
 	int temp;
 	temp = (*game) -> tiles[from_column][from_row];
 	(*game) -> tiles[from_column][from_row] = -1;
 	(*game) -> tiles[to_column][to_row] = temp;
-	ft_printf("moving piece!\n");
+	(*game) -> turn = (*game) -> turn == 0 ? 1 : 0;
 
 }
 

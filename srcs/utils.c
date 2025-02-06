@@ -6,16 +6,25 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 20:06:37 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/02/04 20:07:48 by rafaelfe         ###   ########.fr       */
+/*   Updated: 2025/02/06 21:06:26 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/game.h"
 
-void	pixel_put(t_data *data, int x, int y, int color)
+void	emit_sig(int pid, char c)
 {
-	char	*dst;
+	int	bit_pos;
 
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	bit_pos = 0;
+	while (bit_pos < 8)
+	{
+		if (c & 1)
+			kill(pid, SIGUSR1);
+		else
+			kill(pid, SIGUSR2);
+		c >>= 1;
+		bit_pos++;
+		usleep(500);
+	}
 }

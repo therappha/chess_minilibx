@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 01:07:07 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/02/05 23:03:17 by rafaelfe         ###   ########.fr       */
+/*   Updated: 2025/02/06 18:14:37 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,4 @@ void start_pieces(t_game **game)
 		(*game)->tiles[6][i] = WHITE_PAWN;
 }
 
-void drawpieces(t_game **game)
-{
-	for (int column = 0; column < 8; column++)
-	{
-		for (int rowpos = 0; rowpos < 8; rowpos++)
-		{
-			if ((*game) -> tiles[column][rowpos] != -1)
-			{
-				if ((column  + rowpos) % 2 == 0)
-					mlx_put_image_to_window((*game) -> mlx_ptr, (*game) -> win_ptr, (*game) -> images ->white_piece_img[(*game) -> tiles[column][rowpos]], (rowpos * 64) + 75, (column * 64) + 75);
-				else
-					mlx_put_image_to_window((*game) -> mlx_ptr, (*game) -> win_ptr, (*game) -> images ->piece_img[(*game) -> tiles[column][rowpos]], (rowpos * 64) + 75, (column * 64) + 75);
-			}
-		}
-	}
-}
+

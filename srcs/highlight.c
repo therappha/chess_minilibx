@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 18:17:27 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/02/05 23:07:16 by rafaelfe         ###   ########.fr       */
+/*   Updated: 2025/02/06 19:48:45 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 void highlight(t_game **game, int column, int rowpos, int color)
 {
+	if (!(*game) -> server)
+	{
+		rowpos = 7 - rowpos;
+		column = 7 - column;
+	}
 	if (column > 7 || rowpos > 7)
 		return ;
 	for (int i = 0; i < 64; i++)
