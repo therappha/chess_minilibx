@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 01:07:07 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/02/05 02:11:02 by rafaelfe         ###   ########.fr       */
+/*   Updated: 2025/02/05 23:03:17 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,10 @@ void drawpieces(t_game **game)
 		{
 			if ((*game) -> tiles[column][rowpos] != -1)
 			{
-				if (column % 2 == 0 && rowpos % 2 == 0)
+				if ((column  + rowpos) % 2 == 0)
 					mlx_put_image_to_window((*game) -> mlx_ptr, (*game) -> win_ptr, (*game) -> images ->white_piece_img[(*game) -> tiles[column][rowpos]], (rowpos * 64) + 75, (column * 64) + 75);
-
-				else if (column % 2 == 0)
-					mlx_put_image_to_window((*game) -> mlx_ptr, (*game) -> win_ptr, (*game) -> images ->piece_img[(*game) -> tiles[column][rowpos]], (rowpos * 64) + 75, (column * 64) + 75);
-				else if (rowpos % 2 == 0)
-					mlx_put_image_to_window((*game) -> mlx_ptr, (*game) -> win_ptr, (*game) -> images ->piece_img[(*game) -> tiles[column][rowpos]], (rowpos * 64) + 75, (column * 64) + 75);
 				else
-					mlx_put_image_to_window((*game) -> mlx_ptr, (*game) -> win_ptr, (*game) -> images ->white_piece_img[(*game) -> tiles[column][rowpos]], (rowpos * 64) + 75, (column * 64) + 75);
+					mlx_put_image_to_window((*game) -> mlx_ptr, (*game) -> win_ptr, (*game) -> images ->piece_img[(*game) -> tiles[column][rowpos]], (rowpos * 64) + 75, (column * 64) + 75);
 			}
 		}
 	}

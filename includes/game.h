@@ -90,6 +90,7 @@ typedef	struct	s_game
 	void	*win_ptr;
 	t_images *images;
 	int **tiles;
+	int turn;
 }	t_game;
 
 int		free_displays(t_game **game);
@@ -99,6 +100,15 @@ void	pixel_put(t_data *data, int x, int y, int color);
 void	start_pieces(t_game **game);
 void	drawpieces(t_game **game);
 int	mouse_input(int keysym, int x, int y, t_game **game);
-void highlight(t_game **game, int column, int rowpos);
+void highlight(t_game **game, int column, int rowpos, int color);
+void	resetboard(t_game **game);
+void highlight_valid_moves(t_game **game, int from_column, int from_row);
+
+//valid moves
+int is_valid_pawn(t_game **game, int from_col, int from_row, int to_col, int to_row, int white);
+int is_valid_rook(t_game **game, int from_col, int from_row, int to_col, int to_row, int white);
+int is_valid_knight(t_game **game, int from_col, int from_row, int to_col, int to_row, int white);
+int is_valid_bishop(t_game **game, int from_col, int from_row, int to_col, int to_row, int white);
+
 
 # endif
