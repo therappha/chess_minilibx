@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:42:20 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/02/06 21:28:04 by rafaelfe         ###   ########.fr       */
+/*   Updated: 2025/02/06 23:54:31 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	client_signal_handler(int sig, siginfo_t *info, void *context)
 			{
 				ft_printf("col = %d, row = %d to_col %d, to _row %d\n",  pos[0], pos[1],pos[2], pos[3]);
 				move(&game_ptr, pos[0], pos[1],pos[2], pos[3]);
-				resetboard(&game_ptr);
+				resetboard(&game);
 				pos_i = 0;
 				pos[0] = 0;
 				pos [1] = 0;
@@ -116,3 +116,4 @@ void drawpieces(t_game **game)
 		}
 	}
 }
+

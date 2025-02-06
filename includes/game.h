@@ -105,11 +105,8 @@ void	start_pieces(t_game **game);
 int	mouse_input(int keysym, int x, int y, t_game **game);
 void highlight(t_game **game, int column, int rowpos, int color);
 void	resetboard(t_game **game);
-int is_valid_move(t_game **game, int from_column, int from_row, int to_column, int to_row);
-void highlight_valid_moves(t_game **game, int from_column, int from_row);
-void left_button(t_game **game, int x, int y);
 void	emit_sig(int pid, char c);
-void	move(t_game **game, int from_column, int from_row, int to_column, int to_row);
+
 
 //valid moves
 int is_valid_pawn(t_game **game, int from_col, int from_row, int to_col, int to_row, int white);
@@ -118,6 +115,9 @@ int is_valid_knight(t_game **game, int from_col, int from_row, int to_col, int t
 int is_valid_bishop(t_game **game, int from_col, int from_row, int to_col, int to_row, int white);
 int is_valid_king(t_game **game, int from_col, int from_row, int to_col, int to_row, int white);
 int is_valid_queen(t_game **game, int from_col, int from_row, int to_col, int to_row, int white);
+int is_valid_move(t_game **game, int from_column, int from_row, int to_column, int to_row);
+void highlight_valid_moves(t_game **game, int from_column, int from_row);
+void	move(t_game **game, int from_column, int from_row, int to_column, int to_row);
 
 
 # endif

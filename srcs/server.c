@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:42:20 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/02/06 21:44:11 by rafaelfe         ###   ########.fr       */
+/*   Updated: 2025/02/06 23:56:56 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int pid;
 t_game	*game;
+t_game *game_ptr;
 void drawpieces(t_game **game);
 
 void	signal_handler(int sig, siginfo_t *info, void *context)
@@ -22,7 +23,7 @@ void	signal_handler(int sig, siginfo_t *info, void *context)
 	static int pos_i;
 	static int				i;
 	static int	c;
-	t_game *game_ptr = game;
+
 	// 0 - > from_col, 1 0 - > from_row, 2 -> to_col , 3 -> to_row //
 	int pos[4];
 	if (!started)
@@ -87,6 +88,7 @@ int	main(int ac, char **av)
 	start_pieces(&game);
 	drawboard(&game);
 	pause();
+	game_ptr = game;
 	game -> pid = pid;
 	drawpieces(&game);
 	mlx_hook((game) -> win_ptr, DestroyNotify, 0L, free_displays, &game);
