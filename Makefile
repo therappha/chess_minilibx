@@ -1,6 +1,6 @@
 
-NAME= chess_server
-NAME_CLIENT= chess_client
+NAME= server
+NAME_CLIENT= client
 CC= cc
 CFLAGS = -g  -I $(INCLUDES)
 LDFLAGS =  -L $(LIBFT_DIR) -lft -L $(MLX_DIR) -lmlx_Linux -lXext -lX11 -lm
