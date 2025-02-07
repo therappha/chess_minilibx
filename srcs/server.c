@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:42:20 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/02/07 01:09:11 by rafaelfe         ###   ########.fr       */
+/*   Updated: 2025/02/07 01:12:01 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,31 +42,29 @@ void	signal_handler(int sig, siginfo_t *info, void *context)
 	i++;
 	if (i == 8)
 		{
-			pos[pos_i] = c;
-			i = 0;
-			c = 0;
-			pos_i++;
-			if (pos_i == 4)
+		pos[pos_i] = c;
+		i = 0;
+		c = 0;
+		pos_i++;
+		if (pos_i == 4)
+		{
+			if (is_valid_move(&game_ptr, pos[0], pos[1],pos[2], pos[3]))
 			{
-				if (is_valid_move(&game_ptr, pos[0], pos[1],pos[2], pos[3]))
-				{
-					move(&game_ptr, pos[0], pos[1],pos[2], pos[3]);
-					resetboard(&game_ptr);
-				}
-				else
-				{
-					ft_printf("invalid move received!\n");
-					free_displays(&game_ptr);
-				}
-
-
-				pos_i = 0;
-				pos[0] = 0;
-				pos [1] = 0;
-				pos [2] = 0;
-				pos [3] = 0;
+				move(&game_ptr, pos[0], pos[1],pos[2], pos[3]);
+				resetboard(&game_ptr);
 			}
+			else
+			{
+				ft_printf("invalid move received!\n");
+				free_displays(&game_ptr);
+			}
+			pos_i = 0;
+			pos[0] = 0;
+			pos [1] = 0;
+			pos [2] = 0;
+			pos [3] = 0;
 		}
+	}
 }
 
 int	main(int ac, char **av)
