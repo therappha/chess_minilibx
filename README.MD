@@ -10,11 +10,9 @@ This is a chess game I made using the concept of the **Minitalk** project from 4
 
 Minitalk is a project at 42School where the goal is to communicate between two processes using only two signals: `SIGUSR1` and `SIGUSR2`. The objective is to send strings from a **client** and display them on a **server**.
 
-In this project, I combined that concept with chess to create a fun project.
+In this project, I combined that concept with chess to create something fun.
 
-## Features
-
-- Communicates between two processes with signals (just like Minitalk).
+It Communicates between two processes with signals (just like Minitalk).
 
 ## How to Use
 
