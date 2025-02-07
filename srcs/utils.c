@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 20:06:37 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/02/06 23:48:48 by rafaelfe         ###   ########.fr       */
+/*   Updated: 2025/02/07 00:47:25 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ void	emit_sig(int pid, char c)
 		usleep(500);
 	}
 }
+
 

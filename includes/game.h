@@ -107,6 +107,8 @@ void highlight(t_game **game, int column, int rowpos, int color);
 void	resetboard(t_game **game);
 void	emit_sig(int pid, char c);
 
+int redraw_window(t_game **game);
+
 
 //valid moves
 int is_valid_pawn(t_game **game, int from_col, int from_row, int to_col, int to_row, int white);

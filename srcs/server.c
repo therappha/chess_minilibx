@@ -6,22 +6,22 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:42:20 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/02/06 23:56:56 by rafaelfe         ###   ########.fr       */
+/*   Updated: 2025/02/07 01:09:11 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/game.h"
 
 int pid;
-t_game	*game;
 t_game *game_ptr;
+
 void drawpieces(t_game **game);
 
 void	signal_handler(int sig, siginfo_t *info, void *context)
 {
 	static int started;
 	static int pos_i;
-	static int				i;
+	static int	i;
 	static int	c;
 
 	// 0 - > from_col, 1 0 - > from_row, 2 -> to_col , 3 -> to_row //
@@ -55,8 +55,11 @@ void	signal_handler(int sig, siginfo_t *info, void *context)
 				}
 				else
 				{
-					ft_printf("client tried to pass a invalid move!");
+					ft_printf("invalid move received!\n");
+					free_displays(&game_ptr);
 				}
+
+
 				pos_i = 0;
 				pos[0] = 0;
 				pos [1] = 0;
@@ -92,13 +95,15 @@ int	main(int ac, char **av)
 	game -> pid = pid;
 	drawpieces(&game);
 	mlx_hook((game) -> win_ptr, DestroyNotify, 0L, free_displays, &game);
-	mlx_hook((game) -> win_ptr, 4, (1L<<2), mouse_input, &game );
+	mlx_hook((game) -> win_ptr, 4, (1L<<2), mouse_input, &game);
 	mlx_loop(game->mlx_ptr);
 }
+
 void	resetboard(t_game **game)
 {
 	drawboard(game);
 	drawpieces(game);
+	XFlush(((t_xvar *)(*game)->mlx_ptr)->display);
 }
 
 void drawpieces(t_game **game)

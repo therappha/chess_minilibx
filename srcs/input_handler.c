@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 18:09:31 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/02/06 21:46:26 by rafaelfe         ###   ########.fr       */
+/*   Updated: 2025/02/07 00:07:07 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void handle_selected(t_game **game, int *sel_column, int *sel_row, int column, i
 {
 	static int highlighted;
 
-	if (highlighted == 0 && (*game) -> turn == 0 && (*game) -> tiles[column][row] != -1 && (*game) -> tiles[column][row] < 6 )
+	if (highlighted == 0 && (*game) -> turn == 0 && (*game) -> server && (*game) -> tiles[column][row] != -1 && (*game) -> tiles[column][row] < 6 )
 	{
 		highlight(game, column, row, 0x18a15c);
 		highlighted = 1;
@@ -59,7 +59,7 @@ void handle_selected(t_game **game, int *sel_column, int *sel_row, int column, i
 		*sel_column = column;
 		*sel_row = row;
 	}
-	else if (highlighted == 0 && (*game) -> turn == 1 && (*game) -> tiles[column][row] != -1 && (*game) -> tiles[column][row] > 5 )
+	else if (highlighted == 0 &&  !(*game) -> server &&(*game) -> turn == 1 && (*game) -> tiles[column][row] != -1 && (*game) -> tiles[column][row] > 5 )
 	{
 		highlight(game, column, row, 0x18a15c);
 		highlighted = 1;
