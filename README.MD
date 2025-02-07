@@ -1,3 +1,4 @@
+Work in progress, needs check validation.
 
 # Minitalk Chess? Why Not?!
 
