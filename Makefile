@@ -55,14 +55,15 @@ default: $(DEFAULT) fclean
 
 clean:
 	@rm -rf $(OBJS_SERVER)
-	@rm -rf $(OBJS_CLIENT)
-
+	@rm -rf $(OBJS_CLIENT)OBJS_CHESS
+	@rm -rf $(OBJS_CHESS)
 	@make clean -C $(LIBFT_DIR) --no-print-directory
 	@make clean -C $(MLX_DIR) --no-print-directory
 	@echo "Cleaning Objects!"
 fclean: clean
 	@rm -rf $(NAME)
 	@rm -rf $(NAME_CLIENT)
+	@rm -rf $(DEFAULT)
 	@make fclean -C $(LIBFT_DIR) --no-print-directory
 	@echo "Cleaning Objects and game!"
 
