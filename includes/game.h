@@ -39,6 +39,7 @@
 #define WHITE_PATH "assets/board/white_tile.xpm"
 #define BLACK_PATH "assets/board/black_tile.xpm"
 #define BACKGROUND_PATH "assets/board/background.xpm"
+#define RED_BACKGROUND_PATH "assets/board/red_background.xpm"
 
 // Define piece image paths
 #define WHITE_ROOK_PATH "assets/pieces/white_rook.xpm"
@@ -74,6 +75,7 @@ typedef struct s_images
 	void *black_tile_img;
 	void *white_tile_img;
 	void *background_img;
+	void *red_background_img;
 	void *piece_img[12];
 	void *white_piece_img[12];
 } t_images;
@@ -102,13 +104,10 @@ void	drawboard(t_game **game);
 void	load_images(t_game **game);
 void	pixel_put(t_data *data, int x, int y, int color);
 void	start_pieces(t_game **game);
-int	mouse_input(int keysym, int x, int y, t_game **game);
-void highlight(t_game **game, int column, int rowpos, int color);
+int		mouse_input(int keysym, int x, int y, t_game **game);
+void	 highlight(t_game **game, int column, int rowpos, int color);
 void	resetboard(t_game **game);
 void	emit_sig(int pid, char c);
-
-int redraw_window(t_game **game);
-
 
 //valid moves
 int is_valid_pawn(t_game **game, int from_col, int from_row, int to_col, int to_row, int white);

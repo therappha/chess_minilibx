@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 19:03:31 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/02/05 02:13:32 by rafaelfe         ###   ########.fr       */
+/*   Updated: 2025/02/07 02:37:32 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void load_images(t_game **game)
 // #define BLACK_PAWN 11
 	t_images *images;
 	images = (t_images *)malloc(sizeof(t_images));
-	images -> background_img =  mlx_xpm_file_to_image((*game) -> mlx_ptr, BACKGROUND_PATH, &back_x, &back_y); //segfault here
+	images -> red_background_img =  mlx_xpm_file_to_image((*game) -> mlx_ptr, RED_BACKGROUND_PATH, &back_x, &back_y);
+	images -> background_img =  mlx_xpm_file_to_image((*game) -> mlx_ptr, BACKGROUND_PATH, &back_x, &back_y); 
 	images -> black_tile_img = mlx_xpm_file_to_image((*game) -> mlx_ptr, BLACK_PATH, &img_x, &img_y);
 	images -> white_tile_img = mlx_xpm_file_to_image((*game) -> mlx_ptr, WHITE_PATH, &img_x, &img_y);
 	images -> piece_img[WHITE_ROOK] = mlx_xpm_file_to_image((*game) -> mlx_ptr, WHITE_ROOK_PATH, &pieces_x, &pieces_y);

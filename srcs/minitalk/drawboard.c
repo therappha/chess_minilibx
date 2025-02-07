@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 19:08:14 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/02/05 23:02:02 by rafaelfe         ###   ########.fr       */
+/*   Updated: 2025/02/07 02:35:01 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ void drawboard(t_game **game)
 	int	column;
 	int row_pos;
 
-	mlx_put_image_to_window((*game) -> mlx_ptr, (*game) -> win_ptr, (*game) -> images ->background_img, 0, 0);
+	if (((*game) -> server && (*game) -> turn == 0) || (!(*game) -> server && (*game) -> turn == 1))
+		mlx_put_image_to_window((*game) -> mlx_ptr, (*game) -> win_ptr, (*game) -> images ->background_img, 0, 0);
+	else
+		mlx_put_image_to_window((*game) -> mlx_ptr, (*game) -> win_ptr, (*game) -> images -> red_background_img, 0, 0);
 	column = 0;
 	while (column < 8)
 	{
