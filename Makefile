@@ -1,10 +1,9 @@
-
 NAME= server
 NAME_CLIENT= client
 DEFAULT= chess
 CC= cc
 CFLAGS = -g  -I $(INCLUDES)
-LDFLAGS =  -L $(LIBFT_DIR) -lft -L $(MLX_DIR) -lmlx_Linux -lXext -lX11 -lm
+LDFLAGS = -L $(LIBFT_DIR) -lft -L $(MLX_DIR) -lmlx_Linux -lXext -lX11 -lm
 INCLUDES= ./includes
 LIBFT_DIR= ./libs/libft
 MLX_DIR= ./libs/mlx
@@ -22,18 +21,15 @@ $(SRCS_DIR)/drawpieces.c $(SRCS_DIR)/input_handler.c $(SRCS_DIR)/highlight.c $(S
 SRCS_CLIENT= $(SRCS_DIR)/client.c $(SRCS_DIR)/free_displays.c $(SRCS_DIR)/drawboard.c $(SRCS_DIR)/load_images.c $(SRCS_DIR)/utils.c \
 $(SRCS_DIR)/drawpieces.c $(SRCS_DIR)/input_handler.c $(SRCS_DIR)/highlight.c $(SRCS_DIR)/moves.c
 
-
 OBJS_SERVER=$(SRCS_SERVER:.c=.o)
 OBJS_CLIENT=$(SRCS_CLIENT:.c=.o)
 OBJS_CHESS=$(DEFAULT_SRCS:.c=.o)
-
 
 all: $(NAME) $(NAME_CLIENT)
 	@echo "Project built, execute ./server, and ./client <PID of Server>!"
 
 $(NAME) : $(OBJS_SERVER) $(LIBFT) $(MLX)
 	@$(CC) $(CFLAGS) $(OBJS_SERVER) $(LDFLAGS) -o $(NAME)
-
 
 $(NAME_CLIENT) : $(OBJS_CLIENT) $(LIBFT) $(MLX)
 	@$(CC) $(CFLAGS) $(OBJS_CLIENT) $(LDFLAGS) -o $(NAME_CLIENT)
@@ -50,25 +46,21 @@ $(LIBFT):
 $(MLX):
 	@make -C $(MLX_DIR) --no-print-directory
 
-default: $(DEFAULT) fclean
+default:
+	@$(MAKE) $(DEFAULT)
 	@echo "Project built, execute with ./chess"
 
 clean:
-	@rm -rf $(OBJS_SERVER)
-	@rm -rf $(OBJS_CLIENT)OBJS_CHESS
-	@rm -rf $(OBJS_CHESS)
+	@rm -rf $(OBJS_SERVER) $(OBJS_CLIENT) $(OBJS_CHESS)
 	@make clean -C $(LIBFT_DIR) --no-print-directory
 	@make clean -C $(MLX_DIR) --no-print-directory
 	@echo "Cleaning Objects!"
+
 fclean: clean
-	@rm -rf $(NAME)
-	@rm -rf $(NAME_CLIENT)
-	@rm -rf $(DEFAULT)
+	@rm -rf $(NAME) $(NAME_CLIENT) $(DEFAULT)
 	@make fclean -C $(LIBFT_DIR) --no-print-directory
 	@echo "Cleaning Objects and game!"
 
 re: fclean all
 
-.PHONY: all clean fclean re
-
-
+.PHONY: all clean fclean re default
