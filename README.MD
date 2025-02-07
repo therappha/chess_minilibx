@@ -1,4 +1,4 @@
-Work in progress, needs check validation.
+Work in progress, needs check validation, rook trade moves and en passant.
 
 # Minitalk Chess? Why Not?!
 
@@ -23,7 +23,7 @@ In this project, I combined that concept with chess to create a fun project.
 Clone the repository using the following command:
 
 ```bash
-git clone --recursive git@github.com:therappha/chess_minilibx.git
+git clone --recursive git@github.com:therappha/minitalk_chess_mlx.git
 ```
 
 ### Step 2: Build the Game
