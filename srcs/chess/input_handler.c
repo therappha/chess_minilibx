@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 18:09:31 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/02/06 17:13:42 by rafaelfe         ###   ########.fr       */
+/*   Updated: 2025/02/07 21:21:31 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,10 @@ void	move(t_game **game, int from_column, int from_row, int to_column, int to_ro
 {
 	int temp;
 	temp = (*game) -> tiles[from_column][from_row];
+	if ((temp == BLACK_PAWN && to_column == 7 ))
+		temp = BLACK_QUEEN;
+	else if ((temp == WHITE_PAWN && to_column == 0 ))
+		temp = WHITE_QUEEN;
 	(*game) -> tiles[from_column][from_row] = -1;
 	(*game) -> tiles[to_column][to_row] = temp;
 	ft_printf("moving piece!\n");

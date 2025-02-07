@@ -16,10 +16,10 @@ DEFAULT_SRCS= $(DEFAULT_DIR)/main.c $(DEFAULT_DIR)/free_displays.c $(DEFAULT_DIR
 $(DEFAULT_DIR)/drawpieces.c $(DEFAULT_DIR)/input_handler.c $(DEFAULT_DIR)/highlight.c $(DEFAULT_DIR)/moves.c
 
 SRCS_SERVER= $(SRCS_DIR)/server.c $(SRCS_DIR)/free_displays.c $(SRCS_DIR)/drawboard.c $(SRCS_DIR)/load_images.c $(SRCS_DIR)/utils.c \
-$(SRCS_DIR)/drawpieces.c $(SRCS_DIR)/input_handler.c $(SRCS_DIR)/highlight.c $(SRCS_DIR)/moves.c
+$(SRCS_DIR)/start_pieces.c $(SRCS_DIR)/input_handler.c $(SRCS_DIR)/highlight.c $(SRCS_DIR)/moves.c
 
 SRCS_CLIENT= $(SRCS_DIR)/client.c $(SRCS_DIR)/free_displays.c $(SRCS_DIR)/drawboard.c $(SRCS_DIR)/load_images.c $(SRCS_DIR)/utils.c \
-$(SRCS_DIR)/drawpieces.c $(SRCS_DIR)/input_handler.c $(SRCS_DIR)/highlight.c $(SRCS_DIR)/moves.c
+$(SRCS_DIR)/start_pieces.c $(SRCS_DIR)/input_handler.c $(SRCS_DIR)/highlight.c $(SRCS_DIR)/moves.c
 
 OBJS_SERVER=$(SRCS_SERVER:.c=.o)
 OBJS_CLIENT=$(SRCS_CLIENT:.c=.o)

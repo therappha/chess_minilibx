@@ -19,14 +19,7 @@ void	client_signal_handler(int sig, siginfo_t *info, void *context)
 		return ;
 	}
 	if (sig == SIGUSR1)
-	{
-		ft_printf("receivec sigusr1\n");
 		c |= 1 << i;
-	}
-	else if (sig == SIGUSR2)
-	{
-		ft_printf("receivec sigusr2\n");
-	}
 	i++;
 	if (i == 8)
 	{
