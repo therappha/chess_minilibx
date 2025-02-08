@@ -13,7 +13,7 @@ SRCS_DIR= ./srcs/minitalk
 DEFAULT_DIR= ./srcs/chess
 
 DEFAULT_SRCS= $(DEFAULT_DIR)/main.c $(DEFAULT_DIR)/free_displays.c $(DEFAULT_DIR)/drawboard.c $(DEFAULT_DIR)/load_images.c \
-$(DEFAULT_DIR)/drawpieces.c $(DEFAULT_DIR)/input_handler.c $(DEFAULT_DIR)/highlight.c $(DEFAULT_DIR)/moves.c
+$(DEFAULT_DIR)/drawpieces.c $(DEFAULT_DIR)/input_handler.c $(DEFAULT_DIR)/highlight.c $(DEFAULT_DIR)/moves.c $(DEFAULT_DIR)/in_check.c
 
 SRCS_SERVER= $(SRCS_DIR)/server.c $(SRCS_DIR)/free_displays.c $(SRCS_DIR)/drawboard.c $(SRCS_DIR)/load_images.c $(SRCS_DIR)/utils.c \
 $(SRCS_DIR)/start_pieces.c $(SRCS_DIR)/input_handler.c $(SRCS_DIR)/highlight.c $(SRCS_DIR)/moves.c

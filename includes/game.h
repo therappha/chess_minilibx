@@ -97,6 +97,8 @@ typedef	struct	s_game
 	bool	server;
 	int		turn;
 	int		pid;
+	int		b_king_pos[2];
+	int		w_king_pos[2];
 }	t_game;
 
 int		free_displays(t_game **game);
@@ -119,6 +121,7 @@ int is_valid_queen(t_game **game, int from_col, int from_row, int to_col, int to
 int is_valid_move(t_game **game, int from_column, int from_row, int to_column, int to_row);
 void highlight_valid_moves(t_game **game, int from_column, int from_row);
 void	move(t_game **game, int from_column, int from_row, int to_column, int to_row);
+int	in_check(t_game **game,int king_column, int king_row, int white);
 
 
 # endif

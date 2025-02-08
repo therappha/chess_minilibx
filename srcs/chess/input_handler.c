@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 18:09:31 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/02/07 21:21:31 by rafaelfe         ###   ########.fr       */
+/*   Updated: 2025/02/08 21:27:21 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ void handle_selected(t_game **game, int *sel_column, int *sel_row, int column, i
 		{
 			if (is_valid_move(game, *sel_column, *sel_row, column, row))
 			{
-				move(game, *sel_column, *sel_row, column, row);
-				turn = turn == 0 ? 1 : 0;
+				if (move(game, *sel_column, *sel_row, column, row));
+					turn = turn == 0 ? 1 : 0;
 			}
 			resetboard(game);
 			*sel_column = -1 ;
@@ -102,7 +102,7 @@ void handle_selected(t_game **game, int *sel_column, int *sel_row, int column, i
 	}
 ft_printf("selected column: %d, selected row %d\n", *sel_column, *sel_row);
 }
-void	move(t_game **game, int from_column, int from_row, int to_column, int to_row)
+int	move(t_game **game, int from_column, int from_row, int to_column, int to_row)
 {
 	int temp;
 	temp = (*game) -> tiles[from_column][from_row];
@@ -113,7 +113,7 @@ void	move(t_game **game, int from_column, int from_row, int to_column, int to_ro
 	(*game) -> tiles[from_column][from_row] = -1;
 	(*game) -> tiles[to_column][to_row] = temp;
 	ft_printf("moving piece!\n");
-
+	return (1);
 }
 
 int is_valid_move(t_game **game, int from_column, int from_row, int to_column, int to_row)

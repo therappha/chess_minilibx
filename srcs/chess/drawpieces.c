@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 01:07:07 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/02/07 01:53:58 by rafaelfe         ###   ########.fr       */
+/*   Updated: 2025/02/08 21:06:54 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,11 @@ void start_pieces(t_game **game)
 	(*game)->tiles[7][7] = WHITE_ROOK;
 	for (int i = 0; i < 8; i++)
 		(*game)->tiles[6][i] = WHITE_PAWN;
+	(*game) -> b_king_pos[0] = 0;
+	(*game) -> b_king_pos[1] = 4;
+	(*game) -> w_king_pos[0] = 7;
+	(*game) -> w_king_pos[1] = 4;
+
 }
 
 
